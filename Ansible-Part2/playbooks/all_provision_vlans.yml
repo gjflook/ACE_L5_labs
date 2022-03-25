@@ -1,5 +1,5 @@
 ---
-- hosts: leaf1-DC1
+- hosts: leafs_DC1, leafs_DC2
   gather_facts: no
   tasks:
   - name: Create template
