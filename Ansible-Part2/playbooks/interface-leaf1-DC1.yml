@@ -11,6 +11,10 @@
       msg: "{{ underlay }}"
   - name: Create a configuration for Ethernet3
     template:
-      src: "{{lookup('env','PWD')}}/templates/interfaces.j2"
+      src: "{{lookup('env','PWD')}}/templates/interfaces_ebgp.j2"
       dest: "{{lookup('env','PWD')}}/configs/{{inventory_hostname}}_underlay.cfg"
+  - name: Upload config to switch
+    eos_config:
+      src: "{{lookup('env','PWD')}}/configs/{{inventory_hostname}}_underlay.cfg"
+
 
