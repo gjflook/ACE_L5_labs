@@ -9,3 +9,8 @@
   - name: Test variables
     debug:
       msg: "{{ underlay }}"
+  - name: Create a configuration for Ethernet3
+    template:
+      src: "{{lookup('env','PWD')}}/templates/interfaces.j2"
+      dest: "{{lookup('env','PWD')}}/configs/{{inventory_hostname}}_underlay.cfg"
+
